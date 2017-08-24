@@ -1,0 +1,22 @@
+{
+  "name": "furry-game",
+  "version": "1.0.0",
+  "description": "simple js game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mongru/Furry-Game.git"
+  },
+  "author": "Monika Grubizna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mongru/Furry-Game/issues"
+  },
+  "homepage": "https://github.com/mongru/Furry-Game#readme",
+  "devDependencies": {
+    "webpack": "^3.5.5"
+  }
+}
