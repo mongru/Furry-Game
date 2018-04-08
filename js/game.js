@@ -1,7 +1,6 @@
 var Coin = require("./coin.js");
 var Furry = require("./furry.js");
 
-//konstruktor gry
 var Game = function() {
 
     this.board = document.querySelectorAll('#board div');
@@ -87,11 +86,17 @@ var Game = function() {
     this.gameOver = function() {
 
         if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+            document.getElementById("over").classList.remove("invisible");
+
 
             clearInterval(this.idSetInterval);
             this.hideVisibleFurry();
-            alert('Ooops, you\'ve hit the wall! You collected ' + this.score + ' coins this time! Try again!');
-            // Zaczynamy grę od początku po zamknięciu alertu - Furry w pozycji wyjściowej, zerujemy licznik
+            document.getElementById('final-score').textContent = 'Ooops, you\'ve left the forest! Try again!';
+            // alert('Ooops, you\'ve left the forest! You collected ' + this.score + ' mushrooms this time! Try again!');
+            // Game reset
+            document.getElementById('reset').addEventListener('click', function() {
+              document.getElementById('over').classList.add("invisible");
+            });
             this.furry = new Furry;
             this.score = 0;
             document.querySelector('#score div strong').innerText = this.score;

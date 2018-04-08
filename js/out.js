@@ -67,14 +67,17 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-console.log("Hello Furry!");
-
 var Game = __webpack_require__(1);
 
-//Uruchomienie
 var game = new Game();
 
-//wywołanie metod i eventu keydown
+// document.getElementById('reset').addEventListener('click', function() {
+//   document.getElementById('over').classList.add("invisible");
+//   var nextTry = new Game();
+//   nextTry.showFurry();
+//   nextTry.showCoin();
+//   nextTry.startGame();
+// });
 
 document.addEventListener('keydown', function(event){
     game.turnFurry(event);
@@ -94,7 +97,6 @@ game.startGame();
 var Coin = __webpack_require__(2);
 var Furry = __webpack_require__(3);
 
-//konstruktor gry
 var Game = function() {
 
     this.board = document.querySelectorAll('#board div');
@@ -180,11 +182,17 @@ var Game = function() {
     this.gameOver = function() {
 
         if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+            document.getElementById("over").classList.remove("invisible");
+
 
             clearInterval(this.idSetInterval);
             this.hideVisibleFurry();
-            alert('Ooops, you\'ve hit the wall! You collected ' + this.score + ' coins this time! Try again!');
-            // Zaczynamy grę od początku po zamknięciu alertu - Furry w pozycji wyjściowej, zerujemy licznik
+            document.getElementById('final-score').textContent = 'Ooops, you\'ve left the forest! Try again!';
+            // alert('Ooops, you\'ve left the forest! You collected ' + this.score + ' mushrooms this time! Try again!');
+            // Game reset
+            document.getElementById('reset').addEventListener('click', function() {
+              document.getElementById('over').classList.add("invisible");
+            });
             this.furry = new Furry;
             this.score = 0;
             document.querySelector('#score div strong').innerText = this.score;
@@ -206,7 +214,6 @@ module.exports = Game;
 /* 2 */
 /***/ (function(module, exports) {
 
-//konstruktor monety
 var Coin = function() {
     this.x =  Math.floor(Math.random() * 10);
     this.y =  Math.floor(Math.random() * 10);
@@ -219,7 +226,6 @@ module.exports = Coin;
 /* 3 */
 /***/ (function(module, exports) {
 
-//konstruktor Furry
 var Furry = function() {
     this.x = 0;
     this.y = 0;

@@ -1,11 +1,14 @@
-console.log("Hello Furry!");
-
 var Game = require("./game.js");
 
-//Uruchomienie
 var game = new Game();
 
-//wywołanie metod i eventu keydown
+// document.getElementById('reset').addEventListener('click', function() {
+//   document.getElementById('over').classList.add("invisible");
+//   var nextTry = new Game();
+//   nextTry.showFurry();
+//   nextTry.showCoin();
+//   nextTry.startGame();
+// });
 
 document.addEventListener('keydown', function(event){
     game.turnFurry(event);

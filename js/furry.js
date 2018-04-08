@@ -1,4 +1,3 @@
-//konstruktor Furry
 var Furry = function() {
     this.x = 0;
     this.y = 0;

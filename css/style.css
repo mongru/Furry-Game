@@ -1,14 +1,39 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 section#score {
   width: 100%;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+#rules {
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  line-height: 2em;
+}
+
+#rules span {
+  color: #6717ff;
 }
 
 #board {
@@ -17,8 +42,8 @@ section#score {
   margin: 1em auto;
 }
 
-#board  > div {
-  border: 1px solid lightblue;
+#board>div {
+  background-color: #007346;
   float: left;
   width: 64px;
   height: 64px;
@@ -26,23 +51,26 @@ section#score {
 
 section#score div {
   width: 10em;
-  height: 3em;
+  height: 4em;
   text-align: center;
-  padding: 0.5em;
-  background-color: rgba(211,211,211, 0.75);
-  border: 1px solid lightgray;
-  border-radius: 1px;
-  box-shadow: 1px 1px 5px 1px lightgray;
+  padding: 0.6em;
+  background-color: white;
+  border: 3px solid #6717ff;
   margin: 1em auto;
 }
 
+strong {
+  color: red;
+}
+
 .furry {
-  background-image: url('../images/furry.png');
+  background-image: url('../images/funny3.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .coin {
-  background-image: url('../images/coin.png');
+  background-image: url('../images/mushroom.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -55,7 +83,11 @@ section#over {
   top: 0;
   z-index: 1;
   padding: 10px;
-  background-color: rgba(255, 255, 0, 0.75);
+  background-color: #6717ff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 section#over pre {
@@ -64,7 +96,32 @@ section#over pre {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  color: brown;
+  color: #6717ff;
+}
+
+#final-score {
+  color: white;
+  font-size: 3em;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10%;
+}
+
+#reset {
+  width: 300px;
+  height: 100px;
+  text-transform: uppercase;
+  border: 5px solid white;
+  background-color: transparent;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .invisible {
