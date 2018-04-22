@@ -71,14 +71,6 @@ var Game = __webpack_require__(1);
 
 var game = new Game();
 
-// document.getElementById('reset').addEventListener('click', function() {
-//   document.getElementById('over').classList.add("invisible");
-//   var nextTry = new Game();
-//   nextTry.showFurry();
-//   nextTry.showCoin();
-//   nextTry.startGame();
-// });
-
 document.addEventListener('keydown', function(event){
     game.turnFurry(event);
 });
@@ -188,10 +180,11 @@ var Game = function() {
             clearInterval(this.idSetInterval);
             this.hideVisibleFurry();
             document.getElementById('final-score').textContent = 'Ooops, you\'ve left the forest! Try again!';
-            // alert('Ooops, you\'ve left the forest! You collected ' + this.score + ' mushrooms this time! Try again!');
+
             // Game reset
             document.getElementById('reset').addEventListener('click', function() {
               document.getElementById('over').classList.add("invisible");
+              window.location.reload();
             });
             this.furry = new Furry;
             this.score = 0;
